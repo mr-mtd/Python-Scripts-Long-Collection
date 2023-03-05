@@ -41,6 +41,8 @@ def main():
                     mySetToDictJsonStr +=  json.dumps(item.to_dict()) + "\n"
                 print("Trivia Jason from dict is: \n" + mySetToDictJsonStr)
                 ff.write(mySetToDictJsonStr);
+                time.sleep(1)
+
 
 def oranizeQuesstionsChoicesAndAnswers():
 
@@ -64,11 +66,10 @@ def oranizeQuesstionsChoicesAndAnswers():
                 my_tri_q.c  = line.strip()
             elif line.strip().startswith('d. '):
                 my_tri_q.d  = line.strip()
-            elif ':' in line:
+            elif '-' in line:
                 my_tri_q.answer = line.strip()
                 triviaSets.append(my_tri_q)
                 my_tri_q = TriviaSet()
-
     return triviaSets
 
 if __name__ == '__main__':
